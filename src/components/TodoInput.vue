@@ -40,7 +40,7 @@ export default {
             headers: { "Content-Type": "application/json" },
             body: JSON.stringify({ text: this.newTodoItem })
           };
-          fetch("https://localhost:8080", requestOptions)
+          fetch("https://localhost:8888", requestOptions)
             .then(response => response.json());
       } else {
         this.showModal = !this.showModal;
