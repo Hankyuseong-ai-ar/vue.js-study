@@ -35,13 +35,17 @@ export default {
         //var value = this.newTodoItem && this.newTodoItem.trim();
 				//this.$emit('addTodo', value)
         //this.clearInput();
-        const requestOptions = {
-            method: "POST",
-            headers: { "Content-Type": "application/json" },
-            body: JSON.stringify({ text: this.newTodoItem })
-          };
-          fetch("https://localhost:8888", requestOptions)
-            .then(response => response.json());
+       fetch("http://localhost:8888/save", {
+          method: "post",
+          headers: {
+            'Accept': 'application/json',
+            'Content-Type': 'application/json'
+          },
+
+          body: JSON.stringify({
+            text: this.newTodoItem
+          })
+        })
       } else {
         this.showModal = !this.showModal;
       }
