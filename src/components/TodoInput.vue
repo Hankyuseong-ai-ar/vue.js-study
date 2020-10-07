@@ -32,9 +32,16 @@ export default {
       // 투두리스트 추가 코드
     addTodo() {
       if (this.newTodoItem !== "") {
-        var value = this.newTodoItem && this.newTodoItem.trim();
-				this.$emit('addTodo', value)
-        this.clearInput();
+        //var value = this.newTodoItem && this.newTodoItem.trim();
+				//this.$emit('addTodo', value)
+        //this.clearInput();
+        const requestOptions = {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({ text: this.newTodoItem })
+          };
+          fetch("https://localhost:8080", requestOptions)
+            .then(response => response.json());
       } else {
         this.showModal = !this.showModal;
       }
