@@ -32,9 +32,9 @@ export default {
       // 투두리스트 추가 코드
     addTodo() {
       if (this.newTodoItem !== "") {
-        //var value = this.newTodoItem && this.newTodoItem.trim();
-				//this.$emit('addTodo', value)
-        //this.clearInput();
+        var value = this.newTodoItem && this.newTodoItem.trim();
+				this.$emit('addTodo', value)
+        this.clearInput();
        fetch("http://localhost:8888/save", {
           method: "post",
           headers: {
